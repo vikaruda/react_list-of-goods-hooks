@@ -41,7 +41,7 @@ export const App: React.FC = () => {
         copyArr.reverse();
         break;
       case SortType.reset:
-        copyArr = goodsFromServer;
+        copyArr = [...goodsFromServer];
     }
 
     setGoods(copyArr);
@@ -69,13 +69,11 @@ export const App: React.FC = () => {
       </div>
 
       <ul>
-        <ul>
-          {goods.map(items => (
-            <li key={items} data-cy="Good">
-              {items}
-            </li>
-          ))}
-        </ul>
+        {goods.map(items => (
+          <li key={items} data-cy="Good">
+            {items}
+          </li>
+        ))}
       </ul>
     </div>
   );
